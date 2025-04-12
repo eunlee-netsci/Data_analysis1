@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> Pandas Quiz (FormSubmit Edition)</title>
+  <title>Pandas Quiz (FormSubmit Edition)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -75,10 +75,10 @@
 <body>
 
 <div class="quiz-container">
-  <h2>이름 Name 2:</h2>
+  <h2>이름:</h2>
   <input type="text" id="student_name" placeholder="이름을 입력하세요" required>
 
-  <form action="#" method="POST" onsubmit="return prepareSubmission();">
+  <form action="https://formsubmit.co/leeeun309@gmail.com" method="POST" onsubmit="return prepareSubmission();">
     <input type="hidden" name="_subject" value="퀴즈 제출 결과">
     <input type="hidden" name="Name" id="hidden_name">
     <input type="hidden" name="Score" id="hidden_score">
@@ -193,24 +193,7 @@ function prepareSubmission() {
   document.getElementById("hidden_name").value = name;
   document.getElementById("hidden_score").value = score;
 
-  
-  // Google Sheets POST
-  fetch("https://script.google.com/macros/s/AKfycbxFO_0w_f6lC8AuOITBvLy_tZYkfz8PBTg2H59-Hm6MKXrxQusarPMhXqItmaAUlHxT/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name: name, score: score })
-  })
-  .then(response => {
-    alert("제출이 완료되었습니다!");
-    document.querySelector("form").reset();
-  })
-  .catch(error => {
-    alert("제출에 실패했습니다. 다시 시도해주세요.");
-    console.error("Error:", error);
-  });
-
-  return false; // prevent form from submitting traditionally
-
+  return true;
 }
 </script>
 
