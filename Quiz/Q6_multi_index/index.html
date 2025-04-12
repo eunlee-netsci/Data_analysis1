@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pandas Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h2 { margin-top: 40px; }
+    pre { background-color: #f4f4f4; padding: 10px; }
+    .question { margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+
+  <h1>📊 Pandas Quiz</h1>
+
+  <div class="question">
+    <h2>1. What is the main advantage of using a MultiIndex in Pandas?</h2>
+    <form>
+      <input type="radio" name="q1"> It simplifies data filtering.<br>
+      <input type="radio" name="q1"> It ensures data integrity.<br>
+      <input type="radio" name="q1"> It speeds up data loading times.<br>
+      <input type="radio" name="q1" id="q1_correct"> It allows for more complex data structures.<br>
+    </form>
+  </div>
+
+  <div class="question">
+    <h2>2. What are the benefits of using the pivot_table method in pandas? (Select all that apply)</h2>
+    <form>
+      <input type="checkbox" name="q2"> Reshaping data from wide to tall format.<br>
+      <input type="checkbox" name="q2" id="q2_correct1"> Handling missing data during aggregation.<br>
+      <input type="checkbox" name="q2"> Customizing the sort order of a DataFrame.<br>
+      <input type="checkbox" name="q2" id="q2_correct2"> Aggregating data based on specific categories.<br>
+    </form>
+  </div>
+
+  <div class="question">
+    <h2>3. What is the effect of using the unstack method on a DataFrame in pandas?</h2>
+    <form>
+      <input type="radio" name="q3"> It sorts the DataFrame by a specific column.<br>
+      <input type="radio" name="q3" id="q3_correct"> It converts row index to column index.<br>
+      <input type="radio" name="q3"> It reshapes data from wide format to tall format.<br>
+      <input type="radio" name="q3"> It merges two DataFrames based on a common column.<br>
+    </form>
+  </div>
+
+  <div class="question">
+    <h2>4. Which of the following methods can be used to create a MultiIndex in Pandas?</h2>
+    <form>
+      <input type="checkbox" name="q4"> sort_index<br>
+      <input type="checkbox" name="q4"> melt<br>
+      <input type="checkbox" name="q4"> stack<br>
+      <input type="checkbox" name="q4"> unstack<br>
+      <input type="checkbox" name="q4" id="q4_correct"> set_index<br>
+    </form>
+  </div>
+
+  <div class="question">
+    <h2>5. Which method would you use to convert a wide dataset into a tall dataset in pandas?</h2>
+    <form>
+      <input type="radio" name="q5"> stack<br>
+      <input type="radio" name="q5"> groupby<br>
+      <input type="radio" name="q5" id="q5_correct"> melt<br>
+      <input type="radio" name="q5"> pivot<br>
+    </form>
+  </div>
+
+  <div class="question">
+    <h2>6. Fill in the blank to pivot this DataFrame:</h2>
+    <pre>
+import pandas as pd
+df = pd.DataFrame({
+    "Year": [2020, 2020, 2021, 2021],
+    "Region": ["East", "West", "East", "West"],
+    "Sales": [100, 120, 140, 160]
+})
+pivoted = df._____(index="Year", columns="Region", values="Sales")
+    </pre>
+    <p><b>Your answer:</b> <input type="text" id="q6_answer"></p>
+  </div>
+
+  <div class="question">
+    <h2>7. Which method would you use to convert this back to tall format?</h2>
+    <pre>
+pivoted = df.pivot(index="Year", columns="Region", values="Sales")
+    </pre>
+    <p><b>Your answer:</b> <input type="text" id="q7_answer"></p>
+  </div>
+
+  <div class="question">
+    <h2>8. Complete the melt function to unpivot this DataFrame:</h2>
+    <pre>
+df = pd.DataFrame({
+    "Name": ["A", "B"],
+    "Math": [90, 80],
+    "English": [85, 95]
+})
+df_melted = pd.melt(df, id_vars=["Name"], var_name="Subject", value_name="Score")
+    </pre>
+    <p><b>Which parameter defines the "identifier" column?:</b> <input type="text" id="q8_answer"></p>
+  </div>
+
+</body>
+</html>
