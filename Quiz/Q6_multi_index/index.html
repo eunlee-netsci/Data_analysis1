@@ -194,10 +194,10 @@ function prepareSubmission() {
   document.getElementById("hidden_name").value = name;
   document.getElementById("hidden_score").value = score;
 
-  // Send to Google Form
+  // Send to Google Form with correct entry IDs
   const formData = new URLSearchParams();
-  formData.append("entry.1440846990", name);   // Name
-  formData.append("entry.1735171752", score);  // Score
+  formData.append("entry.562456235", name);   // Corrected Name ID
+  formData.append("entry.415466882", score);  // Corrected Score ID
 
   fetch("https://docs.google.com/forms/d/e/1FAIpQLSeS1QBXiuSWXKrd2YRBAwB99fNtujH2AXwO06driw8Se41bXQ/formResponse", {
     method: "POST",
