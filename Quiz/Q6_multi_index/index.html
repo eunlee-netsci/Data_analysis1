@@ -194,14 +194,19 @@ function prepareSubmission() {
   document.getElementById("hidden_name").value = name;
   document.getElementById("hidden_score").value = score;
 
-  // Also submit to Google Sheets via Apps Script
-  fetch("https://script.google.com/macros/s/AKfycbyLU18dzrw4ajHLzCkPd3H-2SAINhUi4-I1azPyuyF_u4UH1TP_uJuVCXBrWbhQWVGn/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name: name, score: score })
-  });
+  // Send to Google Form
+  const formData = new URLSearchParams();
+  formData.append("entry.1440846990", name);   // Name
+  formData.append("entry.1735171752", score);  // Score
 
-  return true;
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSeS1QBXiuSWXKrd2YRBAwB99fNtujH2AXwO06driw8Se41bXQ/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: formData
+  });
 
   return true;
 }
